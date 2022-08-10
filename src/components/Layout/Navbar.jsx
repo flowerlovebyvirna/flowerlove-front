@@ -21,12 +21,26 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import * as React from "react"
 import { useState } from "react"
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from "react-icons/fi"
 import { Logo } from "./Logo"
+import axios from "axios"
 import { SearchCard } from "./SearchCard"
+
+const query = graphql`
+  {
+    localSearchBlogs {
+      publicIndexURL
+      publicStoreURL
+    }
+    localSearchProducts {
+      publicStoreURL
+      publicIndexURL
+    }
+  }
+`
 
 export const Navbar = () => {
   const isDesktop = useBreakpointValue({
@@ -35,8 +49,39 @@ export const Navbar = () => {
   })
   const [searchQuery, setSearchQuery] = useState("")
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const handleOnFocus = () => {
-    console.log("focus")
+  const data = useStaticQuery(query)
+  const [blogsIndexStore, setBlogsIndexStore] = useState(null)
+  const [productsIndexStore, setProductsIndexStore] = useState(null)
+  const {
+    publicStoreURL: blogsPublicStoreURL,
+    publicIndexURL: blogsPublicIndexURL,
+  } = data.localSearchBlogs
+  const {
+    publicStoreURL: productsPublicStoreURL,
+    publicIndexURL: productsPublicIndexURL,
+  } = data.localSearchProducts
+  const handleOnFocus = async () => {
+    if (blogsIndexStore && productsIndexStore) return
+
+    const [
+      { data: blogsIndex },
+      { data: blogStore },
+      { data: productsIndex },
+      { data: productsStore },
+    ] = await Promise.all([
+      axios.get(blogsPublicIndexURL),
+      axios.get(blogsPublicStoreURL),
+      axios.get(productsPublicIndexURL),
+      axios.get(productsPublicStoreURL),
+    ])
+    setBlogsIndexStore({
+      index: blogsIndex,
+      store: blogStore,
+    })
+    setProductsIndexStore({
+      index: productsIndex,
+      store: productsStore,
+    })
   }
   const setSearchValue = e => {
     setSearchQuery(e.target.value)
@@ -143,3 +188,5 @@ export const Navbar = () => {
     </Box>
   )
 }
+
+//30.20
