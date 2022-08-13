@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { BlogHome } from "../components/BlogHome/BlogHome"
+import Seo from "../components/Seo"
 
 export const BlogsQuery = graphql`
   query blogListQuery($limit: Int!, $offset: Int!) {
@@ -42,13 +43,16 @@ const BlogList = ({ data, pageContext }) => {
   const { currentPage, numberOfPages } = pageContext
   const blogs = data.allSanityBlog.nodes
   return (
-    <BlogHome
-      home
-      paginated
-      currentPage={currentPage}
-      numberOfPages={numberOfPages}
-      blogs={blogs}
-    />
+    <>
+      <Seo title="Blog" />
+      <BlogHome
+        home
+        paginated
+        currentPage={currentPage}
+        numberOfPages={numberOfPages}
+        blogs={blogs}
+      />
+    </>
   )
 }
 

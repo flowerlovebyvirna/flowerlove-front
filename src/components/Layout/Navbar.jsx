@@ -1,29 +1,27 @@
 import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
   Avatar,
   Box,
   Button,
   ButtonGroup,
   Container,
+  Text,
   Flex,
   HStack,
   IconButton,
   useBreakpointValue,
-  InputGroup,
-  Icon,
   Input,
-  InputLeftElement,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import * as React from "react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from "react-icons/fi"
 import { Logo } from "./Logo"
 import axios from "axios"
@@ -49,6 +47,7 @@ export const Navbar = () => {
   })
   const [searchQuery, setSearchQuery] = useState("")
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = useRef()
   const data = useStaticQuery(query)
   const [blogsIndexStore, setBlogsIndexStore] = useState(null)
   const [productsIndexStore, setProductsIndexStore] = useState(null)
@@ -60,6 +59,7 @@ export const Navbar = () => {
     publicStoreURL: productsPublicStoreURL,
     publicIndexURL: productsPublicIndexURL,
   } = data.localSearchProducts
+
   const handleOnFocus = async () => {
     if (blogsIndexStore && productsIndexStore) return
 
@@ -85,7 +85,11 @@ export const Navbar = () => {
   }
   const setSearchValue = e => {
     setSearchQuery(e.target.value)
-    console.log(searchQuery)
+  }
+
+  const resetValue = () => {
+    setSearchQuery("")
+    onClose()
   }
 
   return (
@@ -119,6 +123,7 @@ export const Navbar = () => {
                 <HStack spacing="4">
                   <ButtonGroup variant="ghost-on-accent" spacing="1">
                     <IconButton
+                      ref={btnRef}
                       onClick={onOpen}
                       icon={<FiSearch fontSize="1.25rem" />}
                       aria-label="Search"
@@ -142,51 +147,73 @@ export const Navbar = () => {
             ) : (
               <IconButton
                 variant="ghost-on-accent"
+                onClick={onOpen}
                 icon={<FiMenu fontSize="1.25rem" />}
                 aria-label="Open Menu"
               />
             )}
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Modal Title</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <InputGroup
-                    size="lg"
-                    maxW={{
-                      md: "sm",
-                    }}
-                  >
-                    <InputLeftElement pointerEvents="none">
-                      <Icon as={FiSearch} color="on-accent" boxSize="5" />
-                    </InputLeftElement>
-                    <Input
-                      value={searchQuery}
-                      setValue={setSearchQuery}
-                      onFocus={handleOnFocus}
-                      onChange={e => setSearchValue(e)}
-                      placeholder="Search"
-                      variant="filled"
-                      colorScheme="blue"
-                    />
-                  </InputGroup>
-                  <SearchCard />
-                </ModalBody>
+            <Drawer
+              isOpen={isOpen}
+              placement="right"
+              onClose={onClose}
+              finalFocusRef={btnRef}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Menu</DrawerHeader>
 
-                <ModalFooter>
-                  <Button colorScheme="blue" mr={3} onClick={onClose}>
-                    Close
+                <DrawerBody>
+                  <Box onClick={resetValue}>
+                    <Link to="/">
+                      <Text fontWeight="bold">Home</Text>
+                    </Link>
+                  </Box>
+                  <Box onClick={resetValue}>
+                    <Link to="/blogs">
+                      <Text fontWeight="bold">Blog</Text>
+                    </Link>
+                  </Box>
+                  <Box onClick={resetValue}>
+                    <Link to="/products">
+                      <Text fontWeight="bold">Shop</Text>
+                    </Link>
+                  </Box>
+                  <Text fontWeight="bold" fontSize="1.25rem" pt="4" pb="4">
+                    Ricerca
+                  </Text>
+                  <Input
+                    value={searchQuery}
+                    setValue={setSearchQuery}
+                    onFocus={handleOnFocus}
+                    onChange={e => setSearchValue(e)}
+                    placeholder="Cerca"
+                  />
+                  {searchQuery && blogsIndexStore && productsIndexStore ? (
+                    <>
+                      <SearchCard
+                        resetValue={resetValue}
+                        onClose={onClose}
+                        searchQuery={searchQuery}
+                        blogsIndexStore={blogsIndexStore}
+                        productsIndexStore={productsIndexStore}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </DrawerBody>
+
+                <DrawerFooter>
+                  <Button variant="primary" mr={3} onClick={resetValue}>
+                    Chiudi
                   </Button>
-                  <Button variant="ghost">Secondary Action</Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
           </Flex>
         </Container>
       </Box>
     </Box>
   )
 }
-
-//30.20

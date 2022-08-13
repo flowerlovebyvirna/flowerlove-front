@@ -2,6 +2,7 @@ import React from "react"
 import { ProductDetail } from "../components/Product/ProductDetail/ProductDetail"
 import { Latest } from "../components/HomePage/Latest"
 import { graphql } from "gatsby"
+import Seo from "../components/Seo"
 
 export const productQuery = graphql`
   query SingleProductQuery($id: String!) {
@@ -64,6 +65,7 @@ const SingleProduct = ({ data }) => {
   const recomendedProduct = data.allSanityProduct.nodes
   return (
     <>
+      <Seo title="Prodotto" />
       <ProductDetail product={product} />
       <Latest recomended recomendedProduct={recomendedProduct} />
     </>

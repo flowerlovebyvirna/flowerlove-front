@@ -3,3 +3,11 @@
   height: 15rem;
   object-fit: cover;
 }
+
+.form-container {
+  max-width: 1280px;
+  background-color: red;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}

@@ -120,6 +120,7 @@ export const Latest = ({
                   alt={item.coverImage.alt}
                   img={item.coverImage.asset.gatsbyImageData}
                   id={item.id}
+                  key={item.id}
                   slug={item.slug.current}
                 />
               ))}
@@ -132,6 +133,7 @@ export const Latest = ({
                   alt={item.coverImage.alt}
                   img={item.coverImage.asset.gatsbyImageData}
                   id={item.id}
+                  key={item.id}
                   slug={item.slug.current}
                 />
               ))}

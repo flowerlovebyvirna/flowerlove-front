@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { FilterLayout } from "../components/Product/Filter/FilterLayout"
+import Seo from "../components/Seo"
 
 export const ProductQuery = graphql`
   query productListQuery($limit: Int!, $offset: Int!) {
@@ -49,12 +50,15 @@ const ProductList = ({ data, pageContext }) => {
   const products = data.allSanityProduct.nodes
   const allCatHome = data.allSanityProductCategory.nodes
   return (
-    <FilterLayout
-      list
-      allCatHome={allCatHome}
-      productsLength={productsLength}
-      products={products}
-    />
+    <>
+      <Seo title="Shop" />
+      <FilterLayout
+        list
+        allCatHome={allCatHome}
+        productsLength={productsLength}
+        products={products}
+      />
+    </>
   )
 }
 

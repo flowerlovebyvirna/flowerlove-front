@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Seo from "../components/Seo"
 import { FilterLayout } from "../components/Product/Filter/FilterLayout"
 
 export const query = graphql`
@@ -70,12 +71,15 @@ const SingleProductCategory = ({ data }) => {
   const productsCat = data.allSanityProduct.nodes
   const allCat = data.allSanityProductCategory.nodes
   return (
-    <FilterLayout
-      single
-      catProduct={catProduct}
-      allCat={allCat}
-      productsCat={productsCat}
-    />
+    <>
+      <Seo title="Categorie Prodotti" />
+      <FilterLayout
+        single
+        catProduct={catProduct}
+        allCat={allCat}
+        productsCat={productsCat}
+      />
+    </>
   )
 }
 

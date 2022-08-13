@@ -1,4 +1,10 @@
-import { Box, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react"
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  useColorModeValue,
+  useBreakpointValue,
+} from "@chakra-ui/react"
 import * as React from "react"
 import { CardWithAvatar } from "./CardWithAvatar"
 import data from "./data.json"
@@ -21,7 +27,14 @@ export const Testimonial = () => (
       }}
       mx="auto"
     >
-      <Heading pb="12" textAlign="center">
+      <Heading
+        textAlign="center"
+        pb="12"
+        size={useBreakpointValue({
+          base: "sm",
+          md: "md",
+        })}
+      >
         Dicono di noi
       </Heading>
       <SimpleGrid

@@ -1,11 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { HomePage } from "../components/HomePage/HomePage"
+import Seo from "../components/Seo"
 
 export default function Home({ data }) {
   const latestNews = data.allSanityBlog.nodes
   const latestProduct = data.allSanityProduct.nodes
-  return <HomePage latestNews={latestNews} latestProduct={latestProduct} />
+  return (
+    <>
+      <Seo />
+      <HomePage latestNews={latestNews} latestProduct={latestProduct} />
+    </>
+  )
 }
 
 export const query = graphql`

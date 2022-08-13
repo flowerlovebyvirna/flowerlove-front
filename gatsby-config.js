@@ -3,7 +3,13 @@ const sanityConfig = require("./sanity-config")
 require("dotenv").config("./.env")
 
 module.exports = {
+  siteMetadata: {
+    title: `FlowerLove WebShop`,
+    siteUrl: `https://flowerlove.it`,
+    description: `FlowerLove WebShop is the best place to buy flower online`,
+  },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -111,7 +117,7 @@ module.exports = {
         normalizer: ({ data }) =>
           data.allSanityProduct.nodes.map(node => ({
             id: node.id,
-            title: node.title,
+            name: node.name,
             publishedAt: node.publishedAt,
             slug: node.slug,
             coverImage: node.coverImage,

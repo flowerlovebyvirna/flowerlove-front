@@ -20,6 +20,8 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@fontsource/inter": "^4.5.11",
+    "@formspree/core": "^2.7.1",
+    "@formspree/react": "^2.3.1",
     "@portabletext/react": "^1.0.6",
     "@sanity/asset-utils": "^1.2.3",
     "axios": "^0.27.2",
@@ -28,15 +30,19 @@
     "gatsby": "^4.20.0",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-local-search": "^2.0.1",
+    "gatsby-plugin-react-helmet": "^5.20.0",
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-source-filesystem": "^4.20.0",
     "gatsby-source-sanity": "^7.4.2",
     "gatsby-transformer-sharp": "^4.20.0",
     "keen-slider": "^6.7.0",
     "react": "^18.1.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "react-use-flexsearch": "^0.1.1"
   },
   "devDependencies": {
     "prettier": "^2.7.1"

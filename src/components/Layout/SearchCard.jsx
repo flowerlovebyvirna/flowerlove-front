@@ -1,72 +1,84 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Center,
-  Flex,
-  HStack,
-  StackDivider,
-  Text,
-  useBreakpointValue,
-  useColorModeValue,
-} from "@chakra-ui/react"
+import { Spacer, Box, Button, Flex, Text } from "@chakra-ui/react"
 import * as React from "react"
+import { Link } from "gatsby"
+import { useFlexSearch } from "react-use-flexsearch"
 
-export const SearchCard = () => (
-  <Box
-    as="section"
-    pt={{
-      base: "4",
-      md: "8",
-    }}
-    pb={{
-      base: "12",
-      md: "24",
-    }}
-    px={{
-      base: "4",
-      md: "8",
-    }}
-  >
-    <Flex direction="row-reverse">
-      <Box
-        width={{
-          base: "full",
-          sm: "md",
-        }}
-        boxShadow={useColorModeValue("md", "md-dark")}
-        bg="bg-surface"
-        borderRadius="lg"
-      >
-        <HStack divider={<StackDivider />} spacing="0">
-          <HStack spacing="4" p="4" flex="1">
-            {useBreakpointValue({
-              base: false,
-              sm: true,
-            }) && (
-              <Avatar
-                src="https://tinyurl.com/yhkm2ek8"
-                name="Christoph Winston"
-                boxSize="10"
-              />
-            )}
-            <Box>
-              <Text fontWeight="medium" fontSize="sm">
-                Christoph Winston
-              </Text>
-              <Text color="muted" fontSize="sm">
-                Hey buddy. You are awesome.
-              </Text>
-            </Box>
-          </HStack>
+export const SearchCard = ({
+  searchQuery,
+  blogsIndexStore,
+  productsIndexStore,
+  onClose,
+  resetValue,
+}) => {
+  const blogResult = useFlexSearch(
+    searchQuery,
+    JSON.stringify(blogsIndexStore.index),
+    blogsIndexStore.store
+  )
+  const productResult = useFlexSearch(
+    searchQuery,
+    JSON.stringify(productsIndexStore.index),
+    productsIndexStore.store
+  )
+  return (
+    <>
+      {blogResult.length === 0 && productResult.length === 0 ? (
+        <Flex alignItems="center" gap="2">
+          <Box p="2">
+            <Text>Nessun Risultato</Text>
+          </Box>
+          <Spacer />
+        </Flex>
+      ) : (
+        <>
+          {blogResult.map(item => {
+            return (
+              <Flex key={item.id} alignItems="center" gap="2">
+                <Box p="2">
+                  <Text>{item.title}</Text>
 
-          <Center p="4">
-            <Button colorScheme="blue" variant="link" size="sm">
-              Reply
-            </Button>
-          </Center>
-        </HStack>
-      </Box>
-    </Flex>
-  </Box>
-)
+                  <Link
+                    onClick={resetValue}
+                    to={`/blogs/${item.blogCategory[0].slug.current}`}
+                  >
+                    <Text color="pink.500" fontSize="sm">
+                      {item.blogCategory[0].title}
+                    </Text>
+                  </Link>
+                </Box>
+                <Spacer />
+
+                <Button onClick={resetValue} variant="primary">
+                  <Link to={`/blogs/${item.slug.current}`}>Leggi</Link>
+                </Button>
+              </Flex>
+            )
+          })}
+          {productResult.map(item => {
+            return (
+              <Flex key={item.id} alignItems="center" gap="2">
+                <Box p="2">
+                  <Text>{item.name}</Text>
+
+                  <Link
+                    onClick={resetValue}
+                    to={`/products/${item.productCategory[0].slug.current}`}
+                  >
+                    <Text color="pink.500" fontSize="sm">
+                      {item.productCategory[0].title}
+                    </Text>
+                  </Link>
+                </Box>
+                <Spacer />
+
+                <Button onClick={resetValue} variant="primary">
+                  <Link to={`/products/${item.slug.current}`}>Vai</Link>
+                </Button>
+              </Flex>
+            )
+          })}
+        </>
+      )}
+    </>
+  )
+}

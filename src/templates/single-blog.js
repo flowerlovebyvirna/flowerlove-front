@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Seo from "../components/Seo"
 import { BlogHome } from "../components/BlogHome/BlogHome"
 
 export const postQuery = graphql`
@@ -30,7 +31,12 @@ export const postQuery = graphql`
 `
 const SingleBlog = ({ data }) => {
   const blog = data.sanityBlog
-  return <BlogHome single blog={blog} />
+  return (
+    <>
+      <Seo title="Blog Post" />
+      <BlogHome single blog={blog} />
+    </>
+  )
 }
 
 export default SingleBlog

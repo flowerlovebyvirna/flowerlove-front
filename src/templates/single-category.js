@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import { BlogHome } from "../components/BlogHome/BlogHome"
+import Seo from "../components/Seo"
 export const query = graphql`
   query SingleBlogCategory($id: String!) {
     sanityBlogCategory(id: { eq: $id }) {
@@ -64,7 +65,12 @@ export const query = graphql`
 const SingleCategory = ({ data }) => {
   const catBlog = data.sanityBlogCategory
   const blogsCat = data.allSanityBlog.nodes
-  return <BlogHome catBlog={catBlog} blogsCat={blogsCat} categ />
+  return (
+    <>
+      <Seo title="Categorie Blog" />
+      <BlogHome catBlog={catBlog} blogsCat={blogsCat} categ />
+    </>
+  )
 }
 
 export default SingleCategory
