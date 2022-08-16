@@ -2,17 +2,12 @@ import {
   Box,
   Container,
   Heading,
-  Icon,
-  Input,
-  InputGroup,
-  InputLeftElement,
   SimpleGrid,
   Stack,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react"
 import * as React from "react"
-import { FiSearch } from "react-icons/fi"
 import { BlogPost } from "./BlogPost"
 import { Pagination } from "../Pagination"
 import { SinglePost } from "./SinglePost"
@@ -98,23 +93,6 @@ export const BlogHome = ({
                   : "Ice cream pudding dragée macaroon donut marzipan chocolate"}
               </Text>
             </Stack>
-            {!categ && (
-              <InputGroup
-                size="lg"
-                maxW={{
-                  md: "sm",
-                }}
-              >
-                <InputLeftElement pointerEvents="none">
-                  <Icon as={FiSearch} color="on-accent" boxSize="5" />
-                </InputLeftElement>
-                <Input
-                  placeholder="Search"
-                  variant="filled"
-                  colorScheme="blue"
-                />
-              </InputGroup>
-            )}
           </Stack>
         </Container>
       </Box>

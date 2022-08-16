@@ -6,7 +6,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Avatar,
   Box,
   Button,
   ButtonGroup,
@@ -22,7 +21,8 @@ import {
 import { graphql, Link, useStaticQuery } from "gatsby"
 import * as React from "react"
 import { useState, useRef } from "react"
-import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from "react-icons/fi"
+import { FiMenu, FiSearch } from "react-icons/fi"
+import { AiOutlineShoppingCart } from "react-icons/ai"
 import { Logo } from "./Logo"
 import axios from "axios"
 import { SearchCard } from "./SearchCard"
@@ -129,28 +129,27 @@ export const Navbar = () => {
                       aria-label="Search"
                     />
                     <IconButton
-                      icon={<FiSettings fontSize="1.25rem" />}
-                      aria-label="Settings"
-                    />
-                    <IconButton
-                      icon={<FiHelpCircle fontSize="1.25rem" />}
-                      aria-label="Help Center"
+                      icon={<AiOutlineShoppingCart fontSize="1.25rem" />}
+                      aria-label="Cart"
+                      className="snipcart-checkout"
                     />
                   </ButtonGroup>
-                  <Avatar
-                    boxSize="10"
-                    name="Christoph Winston"
-                    src="https://tinyurl.com/yhkm2ek8"
-                  />
                 </HStack>
               </>
             ) : (
-              <IconButton
-                variant="ghost-on-accent"
-                onClick={onOpen}
-                icon={<FiMenu fontSize="1.25rem" />}
-                aria-label="Open Menu"
-              />
+              <ButtonGroup variant="ghost-on-accent" spacing="1">
+                <IconButton
+                  variant="ghost-on-accent"
+                  onClick={onOpen}
+                  icon={<FiMenu fontSize="1.25rem" />}
+                  aria-label="Open Menu"
+                />
+                <IconButton
+                  icon={<AiOutlineShoppingCart fontSize="1.25rem" />}
+                  aria-label="Cart"
+                  className="snipcart-checkout"
+                />
+              </ButtonGroup>
             )}
             <Drawer
               isOpen={isOpen}
@@ -205,9 +204,9 @@ export const Navbar = () => {
                 </DrawerBody>
 
                 <DrawerFooter>
-                  <Button variant="primary" mr={3} onClick={resetValue}>
+                  {/* <Button variant="primary" mr={3} onClick={resetValue}>
                     Chiudi
-                  </Button>
+                  </Button> */}
                 </DrawerFooter>
               </DrawerContent>
             </Drawer>

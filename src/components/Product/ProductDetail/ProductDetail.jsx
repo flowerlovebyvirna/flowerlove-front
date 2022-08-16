@@ -3,15 +3,14 @@ import {
   Button,
   Heading,
   HStack,
-  Link,
   Stack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react"
+import { Link } from "gatsby"
 import * as React from "react"
 import { Gallery } from "./Gallery"
 import { PriceTag } from "./PriceTag"
-import { QuantityPicker } from "./QuantityPicker"
 import MyPortableProduct from "./myPortableProductDescription"
 
 export const ProductDetail = ({ product }) => {
@@ -83,26 +82,29 @@ export const ProductDetail = ({ product }) => {
             justify="space-evenly"
           >
             <Box flex="1">
-              <QuantityPicker defaultValue={1} max={3} />
-            </Box>
-            <Box flex="1">
-              <Link
-                to={`/categories/${product.productCategory[0].slug.current}`}
-              >
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  fontSize="md"
-                  width="full"
+              <Button variant="secondary" size="lg" fontSize="md" width="full">
+                <Link
+                  to={`/products/${product.productCategory[0].slug.current}`}
                 >
                   <Text fontSize="sm" fontWeight="semibold" color="accent">
                     {product.productCategory[0].title}
                   </Text>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Box>
           </HStack>
-          <Button variant="primary" size="lg">
+          <Button
+            className="snipcart-add-item"
+            data-item-id={product.id}
+            data-item-price={product.price}
+            data-item-url={`/products/${product.slug.current}`}
+            data-item-name={product.name}
+            data-item-image={
+              product.coverImage.asset.gatsbyImageData.images.fallback.src
+            }
+            variant="primary"
+            size="lg"
+          >
             Add to cart
           </Button>
         </Stack>

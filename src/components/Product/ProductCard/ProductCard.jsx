@@ -15,6 +15,7 @@ import { Link } from "gatsby"
 
 export const ProductCard = props => {
   const { product, rootProps } = props
+  console.log(product.coverImage.asset.gatsbyImageData)
   return (
     <Stack
       spacing={useBreakpointValue({
@@ -51,7 +52,18 @@ export const ProductCard = props => {
       </Stack>
 
       <HStack align="left">
-        <Button variant="primary" isFullWidth>
+        <Button
+          className="snipcart-add-item"
+          data-item-id={product.id}
+          data-item-price={product.price}
+          data-item-url={`/products/${product.slug.current}`}
+          data-item-name={product.name}
+          data-item-image={
+            product.coverImage.asset.gatsbyImageData.images.fallback.src
+          }
+          variant="primary"
+          isFullWidth
+        >
           Add to cart
         </Button>
       </HStack>

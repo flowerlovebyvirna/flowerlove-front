@@ -1,13 +1,38 @@
+:root {
+  --color-buttonPrimary: hsl(0, 0%, 100%);
+  --bgColor-buttonPrimary: hsl(325, 57%, 46%);
+  --color-buttonPrimary-hover: hsl(0, 0%, 100%);
+  --bgColor-buttonPrimary-hover: hsl(325, 57%, 46%);
+  --color-buttonPrimary-success: hsl(0, 0%, 100%);
+  --bgColor-buttonPrimary-success: hsl(325, 57%, 46%);
+  --color-buttonPrimary-active: hsl(0, 0%, 100%);
+  --bgColor-buttonPrimary-active: hsl(325, 57%, 46%);
+  --color-link: hsl(325, 57%, 46%);
+  --color-link-hover: hsl(325, 57%, 46%);
+  --color-link-active: hsl(325, 57%, 46%);
+  --borderColor-input-hover: hsl(325, 57%, 46%);
+  --borderColor-input-focus: hsl(325, 57%, 46%);
+  --color-inputIcon: hsl(325, 57%, 46%);
+  --color-inputIcon-hover: hsl(325, 57%, 46%);
+  --color-inputIcon-focus: hsl(325, 57%, 46%);
+  --color-inputIcon-checked: hsl(325, 57%, 46%);
+  --borderColor-input-error: hsl(325, 57%, 46%);
+  --color-badge: hsl(0, 0%, 100%);
+  --bgColor-badge: hsl(325, 57%, 46%);
+  --color-badge-active: hsl(0, 0%, 100%);
+  --bgColor-badge-active: hsl(325, 57%, 46%);
+  --color-icon: hsl(325, 57%, 46%);
+  --color-input-error: hsl(325, 57%, 46%);
+  --shadow-buttonPrimary-hover: hsl(0, 0%, 0%);
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.snipcart-overwrite #snipcart-main-container a.snipcart-btn {
+  font-family: "Inter";
+}
+
 .blog-img {
   width: 100%;
   height: 15rem;
   object-fit: cover;
-}
-
-.form-container {
-  max-width: 1280px;
-  background-color: red;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
 }

@@ -36,6 +36,14 @@ export const BlogPost = props => {
         </Box>
         <Stack spacing="6">
           <Stack spacing="3">
+            <Heading
+              size={useBreakpointValue({
+                base: "xs",
+                md: isHero ? "sm" : "xs",
+              })}
+            >
+              <Link to={`/blogs/${slug}`}>{title}</Link>
+            </Heading>
             <HStack
               spacing="1"
               fontSize="sm"
@@ -46,14 +54,7 @@ export const BlogPost = props => {
                 <Link to={`/blogs/${blogCatSlug}`}>{blogCatTitle}</Link>
               </Text>
             </HStack>
-            <Heading
-              size={useBreakpointValue({
-                base: "xs",
-                md: isHero ? "sm" : "xs",
-              })}
-            >
-              <Link to={`/blogs/${slug}`}>{title}</Link>
-            </Heading>
+
             <Text color="muted">{excerpt}</Text>
           </Stack>
           <HStack>

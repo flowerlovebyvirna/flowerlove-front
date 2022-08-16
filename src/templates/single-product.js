@@ -7,6 +7,10 @@ import Seo from "../components/Seo"
 export const productQuery = graphql`
   query SingleProductQuery($id: String!) {
     sanityProduct(id: { eq: $id }) {
+      id
+      slug {
+        current
+      }
       name
       publishedAt
       _rawProductDescription
@@ -63,6 +67,7 @@ export const productQuery = graphql`
 const SingleProduct = ({ data }) => {
   const product = data.sanityProduct
   const recomendedProduct = data.allSanityProduct.nodes
+  console.log(product)
   return (
     <>
       <Seo title="Prodotto" />

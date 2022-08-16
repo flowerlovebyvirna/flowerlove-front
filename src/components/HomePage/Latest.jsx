@@ -141,11 +141,11 @@ export const Latest = ({
           {isMobile &&
             (latestNews ? (
               <Button variant="primary" size="lg">
-                <Link to="/blogs">Show all</Link>
+                <Link to="/blogs">Vai al blog</Link>
               </Button>
             ) : (
               <Button variant="primary" size="lg">
-                Show all
+                <Link to="/blogs">Vai al blog</Link>
               </Button>
             ))}
         </Stack>

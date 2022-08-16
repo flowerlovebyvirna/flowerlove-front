@@ -132,6 +132,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-snipcart-advanced`,
+      options: {
+        version: "3.3.3",
+        publicApiKey:
+          "OTIwYWU1ZDktMzFjOC00NjU3LTg2YmYtOTg1MGZmNmQ4M2M0NjM3OTYwNjA3MjU5MDM2Njg3",
+        defaultLang: "it",
+        currency: "eur",
+        openCartOnAdd: true,
+        useSideCart: true,
+        templatesUrl:
+          "<https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css>",
+      },
+    },
+    {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
         /**
