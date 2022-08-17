@@ -42,7 +42,7 @@ export const Services = () => (
               fontWeight="semibold"
               color="accent"
             >
-              Services
+              Servizi
             </Text>
             <Heading
               size={useBreakpointValue({
@@ -50,7 +50,7 @@ export const Services = () => (
                 md: "md",
               })}
             >
-              What can you expect?
+              Lorem ipsum dolor sit!
             </Heading>
           </Stack>
           <Text
@@ -60,8 +60,8 @@ export const Services = () => (
               md: "xl",
             }}
           >
-            A bundle of 210+ ready-to-use, responsive and accessible components
-            with clever structured sourcode files.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut ad
+            nobis harum distinctio repudiandae ea consequuntur
           </Text>
         </Stack>
         <SimpleGrid
@@ -119,14 +119,6 @@ export const Services = () => (
                 </Text>
                 <Text color="muted">{feature.description}</Text>
               </Stack>
-              {/* <Button
-                variant="link"
-                colorScheme="blue"
-                rightIcon={<FiArrowRight fontSize="1.25rem" />}
-                alignSelf="start"
-              >
-                Read more
-              </Button> */}
             </Stack>
           ))}
         </SimpleGrid>

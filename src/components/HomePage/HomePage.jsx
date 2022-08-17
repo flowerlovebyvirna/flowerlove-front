@@ -9,9 +9,9 @@ export const HomePage = ({ latestNews, latestProduct }) => {
   return (
     <>
       <Hero />
-      <Latest latestTitle="Blog" latestNews={latestNews} />
+      <Latest latestTitle="blog" latestNews={latestNews} />
       <Services />
-      <Latest latestTitle="Shop" latestProduct={latestProduct} />
+      <Latest latestTitle="negozio" latestProduct={latestProduct} />
       <Testimonial />
       <Contact />
     </>

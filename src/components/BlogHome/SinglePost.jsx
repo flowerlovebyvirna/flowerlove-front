@@ -16,7 +16,6 @@ import MyPortableText from "../MyPortableText"
 
 export const SinglePost = props => {
   const { blog, isHero } = props
-  console.log(blog)
   return (
     <Link
       _hover={{
@@ -40,9 +39,7 @@ export const SinglePost = props => {
               fontWeight="semibold"
               color="accent"
             >
-              <Link
-                to={`/blogs/categories/${blog.blogCategory[0].title.toLowerCase()}`}
-              >
+              <Link to={`/blogs/${blog.blogCategory[0].slug.current}`}>
                 {blog.blogCategory[0].title}
               </Link>
               <Icon as={VscCircleFilled} boxSize="2" />

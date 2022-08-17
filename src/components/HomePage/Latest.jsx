@@ -54,7 +54,7 @@ export const Latest = ({
                     md: "md",
                   }}
                 >
-                  Our {latestTitle}
+                  Il nostro {latestTitle}
                 </Text>
                 <Heading
                   size={useBreakpointValue({
@@ -62,7 +62,7 @@ export const Latest = ({
                     md: "md",
                   })}
                 >
-                  Latest {latestTitle} posts
+                  Le ultime dal nostro {latestTitle}
                 </Heading>
               </Stack>
               <Text
@@ -77,13 +77,17 @@ export const Latest = ({
             </Stack>
             {!isMobile &&
               (latestNews ? (
-                <Button variant="primary" size="lg">
-                  <Link to="/blogs">Show all</Link>
-                </Button>
+                <Link to="/blogs">
+                  <Button variant="primary" size="lg">
+                    Vai
+                  </Button>
+                </Link>
               ) : (
-                <Button variant="primary" size="lg">
-                  <Link to="/products">Show all</Link>
-                </Button>
+                <Link to="/products">
+                  <Button variant="primary" size="lg">
+                    Vai
+                  </Button>
+                </Link>
               ))}
           </Stack>
           <SimpleGrid
@@ -140,13 +144,17 @@ export const Latest = ({
           </SimpleGrid>
           {isMobile &&
             (latestNews ? (
-              <Button variant="primary" size="lg">
-                <Link to="/blogs">Vai al blog</Link>
-              </Button>
+              <Link to="/blogs">
+                <Button variant="primary" size="lg">
+                  Vai al blog
+                </Button>
+              </Link>
             ) : (
-              <Button variant="primary" size="lg">
-                <Link to="/blogs">Vai al blog</Link>
-              </Button>
+              <Link to="/blogs">
+                <Button variant="primary" size="lg">
+                  Vai al blog
+                </Button>
+              </Link>
             ))}
         </Stack>
       </Container>

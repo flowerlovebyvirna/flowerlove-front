@@ -61,9 +61,11 @@ export const BlogPost = props => {
             <Text>{new Date(publishedAt).toLocaleString()}</Text>
           </HStack>
         </Stack>
-        <Button width="35%" variant="primary">
-          <Link to={`/blogs/${slug}`}>Leggi</Link>
-        </Button>
+        <Link to={`/blogs/${slug}`}>
+          <Button width="35%" variant="primary">
+            Leggi
+          </Button>
+        </Link>
       </Stack>
     </Box>
   )

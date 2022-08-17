@@ -46,8 +46,8 @@ export const Contact = () => {
         <Stack spacing="6" align="center">
           <Logo />
           <Stack spacing="3" textAlign="center">
-            <Heading size="sm">Create an account</Heading>
-            <Text color="muted">Start making your dreams come true</Text>
+            <Heading size="sm">Contattaci</Heading>
+            <Text color="muted">lorem ipsum dolet</Text>
           </Stack>
         </Stack>
         <Stack spacing="6">

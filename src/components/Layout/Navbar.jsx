@@ -106,15 +106,15 @@ export const Navbar = () => {
               <Logo />
               {isDesktop && (
                 <ButtonGroup variant="ghost-on-accent" spacing="1">
-                  <Button>
-                    <Link to="/">Home</Link>
-                  </Button>
-                  <Button>
-                    <Link to="/blogs">Blog</Link>
-                  </Button>
-                  <Button>
-                    <Link to="/products">Shop</Link>
-                  </Button>
+                  <Link to="/">
+                    <Button>Home</Button>
+                  </Link>
+                  <Link to="/blogs">
+                    <Button>Blog</Button>
+                  </Link>
+                  <Link to="/products">
+                    <Button>Shop</Button>
+                  </Link>
                 </ButtonGroup>
               )}
             </HStack>

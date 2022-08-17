@@ -70,6 +70,7 @@ const SingleProductCategory = ({ data }) => {
   const catProduct = data.sanityProductCategory
   const productsCat = data.allSanityProduct.nodes
   const allCat = data.allSanityProductCategory.nodes
+  console.log(catProduct)
   return (
     <>
       <Seo title="Categorie Prodotti" />

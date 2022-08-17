@@ -1,5 +1,4 @@
 import {
-  Badge,
   Box,
   Button,
   Container,
@@ -10,6 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react"
 import * as React from "react"
+import { Link } from "gatsby"
 
 export const Hero = () => (
   <Box as="section" bg="bg-surface">
@@ -84,24 +84,28 @@ export const Hero = () => (
               }}
               spacing="3"
             >
-              <Button
-                variant="primary"
-                size={useBreakpointValue({
-                  base: "lg",
-                  md: "xl",
-                })}
-              >
-                Aquista
-              </Button>
-              <Button
-                variant="secondary"
-                size={useBreakpointValue({
-                  base: "lg",
-                  md: "xl",
-                })}
-              >
-                Blog
-              </Button>
+              <Link to="/products">
+                <Button
+                  variant="primary"
+                  size={useBreakpointValue({
+                    base: "lg",
+                    md: "xl",
+                  })}
+                >
+                  Aquista
+                </Button>
+              </Link>
+              <Link to="/blogs">
+                <Button
+                  variant="secondary"
+                  size={useBreakpointValue({
+                    base: "lg",
+                    md: "xl",
+                  })}
+                >
+                  Blog
+                </Button>
+              </Link>
             </Stack>
           </Stack>
           <Box

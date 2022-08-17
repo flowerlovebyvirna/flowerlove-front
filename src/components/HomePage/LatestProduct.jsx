@@ -42,7 +42,7 @@ const LatestProduct = ({ name, cat, alt, img, id, slug, price }) => {
           variant="primary"
           isFullWidth
         >
-          Add to cart
+          Aggiungi al carrello
         </Button>
       </HStack>
     </Stack>
@@ -50,12 +50,3 @@ const LatestProduct = ({ name, cat, alt, img, id, slug, price }) => {
 }
 
 export default LatestProduct
-
-// <Link
-//   to={`/products/${slug}`}
-//   key={id}
-//   _hover={{
-//     textDecor: "none",
-//   }}
-//   role="group"
-// >

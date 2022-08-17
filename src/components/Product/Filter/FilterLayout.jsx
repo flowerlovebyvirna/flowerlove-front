@@ -43,7 +43,7 @@ export const FilterLayout = ({
         }}
         mb="8"
       >
-        Men's Watches
+        Prodotti
       </Heading>
 
       <Flex

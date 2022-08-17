@@ -3,21 +3,21 @@ import { GiButterflyFlower, GiFlowers } from "react-icons/gi"
 
 export const features = [
   {
-    name: "210+ Components",
+    name: "lorem ipsum",
     description:
-      "Chakra UI Pro has 210+ componentsto help you develop your project faster.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum facere expedita corporis rem aperiam",
     icon: BsFlower1,
   },
   {
-    name: "Production Ready",
+    name: "lorem ipsum",
     description:
-      "Effortlessly create your next production-ready experience with Chakra UI Pro components.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum facere expedita corporis rem aperiam",
     icon: GiButterflyFlower,
   },
   {
-    name: "Light & Dark",
+    name: "lorem ipsum",
     description:
-      "All components support a light and a dark color mode out of the box.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum facere expedita corporis rem aperiam",
     icon: GiFlowers,
   },
 ]

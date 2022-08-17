@@ -15,7 +15,6 @@ import { Link } from "gatsby"
 
 export const ProductCard = props => {
   const { product, rootProps } = props
-  console.log(product.coverImage.asset.gatsbyImageData)
   return (
     <Stack
       spacing={useBreakpointValue({
