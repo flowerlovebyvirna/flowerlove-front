@@ -63,7 +63,7 @@ export const FilterLayout = ({
             fontSize="sm"
             whiteSpace="nowrap"
           >
-            Sort by
+            Filtra per
           </Text>
           {list && <SelectCat cat={allCatHome} />}
           {single && <SelectCat cat={allCat} />}

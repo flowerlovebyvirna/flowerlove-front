@@ -63,7 +63,7 @@ export const ProductCard = props => {
           variant="primary"
           isFullWidth
         >
-          Add to cart
+          Aggiungi al carrello
         </Button>
       </HStack>
     </Stack>

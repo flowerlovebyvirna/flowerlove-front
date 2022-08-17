@@ -4,12 +4,12 @@ import { navigate } from "gatsby"
 
 const SelectCat = ({ cat }) => {
   const newCat = [
-    { id: "0987362372", title: "All", slug: { current: "all" } },
+    { id: "0987362372", title: "Tutti", slug: { current: "tutti" } },
     ...cat,
   ]
   const navigateTo = e => {
     e.preventDefault()
-    if (e.target.value === "all") {
+    if (e.target.value === "tutti") {
       navigate(`/products`)
     } else {
       navigate(`/products/${e.target.value}`)

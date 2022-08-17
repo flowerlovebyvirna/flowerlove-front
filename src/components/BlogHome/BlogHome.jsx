@@ -69,7 +69,7 @@ export const BlogHome = ({
                     md: "md",
                   }}
                 >
-                  {categ ? catBlog.title : "Our Blog"}
+                  {categ ? catBlog.title : "Il Nostro Blog"}
                 </Text>
                 <Heading
                   size={useBreakpointValue({
@@ -77,7 +77,9 @@ export const BlogHome = ({
                     md: "lg",
                   })}
                 >
-                  Latest {categ ? catBlog.title : "Blog"} posts
+                  {categ
+                    ? `Nuovi ${catBlog.title} post`
+                    : "Le ultime news dal Blog"}
                 </Heading>
               </Stack>
               <Text

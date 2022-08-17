@@ -105,7 +105,7 @@ export const ProductDetail = ({ product }) => {
             variant="primary"
             size="lg"
           >
-            Add to cart
+            Aggiungi al carrello
           </Button>
         </Stack>
         <Gallery

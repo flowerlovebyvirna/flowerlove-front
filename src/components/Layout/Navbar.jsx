@@ -160,22 +160,22 @@ export const Navbar = () => {
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton />
-                <DrawerHeader>Menu</DrawerHeader>
+                <DrawerHeader fontWeight="bold">Menu</DrawerHeader>
 
                 <DrawerBody>
                   <Box onClick={resetValue}>
                     <Link to="/">
-                      <Text fontWeight="bold">Home</Text>
+                      <Text fontWeight="semibold">Home</Text>
                     </Link>
                   </Box>
                   <Box onClick={resetValue}>
                     <Link to="/blogs">
-                      <Text fontWeight="bold">Blog</Text>
+                      <Text fontWeight="semibold">Blog</Text>
                     </Link>
                   </Box>
                   <Box onClick={resetValue}>
                     <Link to="/products">
-                      <Text fontWeight="bold">Shop</Text>
+                      <Text fontWeight="semibold">Shop</Text>
                     </Link>
                   </Box>
                   <Text fontWeight="bold" fontSize="1.25rem" pt="4" pb="4">
