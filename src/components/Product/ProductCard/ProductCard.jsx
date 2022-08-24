@@ -25,10 +25,12 @@ export const ProductCard = props => {
     >
       <Box position="relative">
         <AspectRatio ratio={4 / 3}>
-          <GatsbyImage
-            image={product.coverImage.asset.gatsbyImageData}
-            alt={product.coverImage.alt}
-          />
+          <Link to={`/products/${product.slug.current}`}>
+            <GatsbyImage
+              image={product.coverImage.asset.gatsbyImageData}
+              alt={product.coverImage.alt}
+            />
+          </Link>
         </AspectRatio>
       </Box>
       <Stack>
