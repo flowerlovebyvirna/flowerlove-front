@@ -8,6 +8,7 @@ import {
   DrawerCloseButton,
   Box,
   Button,
+  Image,
   ButtonGroup,
   Container,
   Text,
@@ -23,7 +24,7 @@ import * as React from "react"
 import { useState, useRef } from "react"
 import { FiMenu, FiSearch } from "react-icons/fi"
 import { AiOutlineShoppingCart } from "react-icons/ai"
-import { Logo } from "./Logo"
+import logo from "../../img/bitmap.svg"
 import axios from "axios"
 import { SearchCard } from "./SearchCard"
 
@@ -103,7 +104,7 @@ export const Navbar = () => {
         >
           <Flex justify="space-between">
             <HStack spacing="4">
-              <Logo />
+              <Image width="150px" height="32px" src={logo} />
               {isDesktop && (
                 <ButtonGroup variant="ghost-on-accent" spacing="1">
                   <Link to="/">
