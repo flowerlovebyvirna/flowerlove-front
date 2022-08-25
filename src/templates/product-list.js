@@ -26,7 +26,7 @@ export const ProductQuery = graphql`
         coverImage {
           alt
           asset {
-            gatsbyImageData
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
         available

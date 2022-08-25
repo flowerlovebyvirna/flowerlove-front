@@ -36,3 +36,7 @@
   height: 15rem;
   object-fit: cover;
 }
+
+.img-resize {
+  height: 15rem;
+}

@@ -7,14 +7,18 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
+  Image,
+  Skeleton,
 } from "@chakra-ui/react"
 import * as React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { PriceTag } from "./PriceTag"
 import { Link } from "gatsby"
 
 export const ProductCard = props => {
   const { product, rootProps } = props
+  const pathToImage = getImage(product.coverImage.asset.gatsbyImageData)
+  console.log("here", pathToImage)
   return (
     <Stack
       spacing={useBreakpointValue({
@@ -24,11 +28,21 @@ export const ProductCard = props => {
       {...rootProps}
     >
       <Box position="relative">
-        <AspectRatio ratio={4 / 3}>
+        <AspectRatio ratio={3 / 4}>
           <Link to={`/products/${product.slug.current}`}>
-            <GatsbyImage
+            {/* <GatsbyImage
               image={product.coverImage.asset.gatsbyImageData}
               alt={product.coverImage.alt}
+            /> */}
+            <Image
+              src={pathToImage.images.fallback.src}
+              alt={product.coverImage.alt}
+              draggable="false"
+              fallback={<Skeleton />}
+              borderRadius={useBreakpointValue({
+                base: "md",
+                md: "xl",
+              })}
             />
           </Link>
         </AspectRatio>
