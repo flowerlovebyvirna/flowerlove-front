@@ -4,9 +4,9 @@ require("dotenv").config("./.env")
 
 module.exports = {
   siteMetadata: {
-    title: `FlowerLove WebShop`,
-    siteUrl: `https://flowerlove.it`,
-    description: `FlowerLove WebShop is the best place to buy flower online`,
+    title: `Flower & Arts WebShop`,
+    siteUrl: `https://flowerloveshop.netlify.app/`,
+    description: `Flower & Arts WebShop is the best place to buy flower online`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
