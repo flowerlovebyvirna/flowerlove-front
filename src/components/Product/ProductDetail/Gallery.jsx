@@ -9,13 +9,12 @@ import {
   Image,
   useColorModeValue,
 } from "@chakra-ui/react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5"
 import { Carousel, CarouselSlide, useCarousel } from "./Carousel"
 
 export const Gallery = props => {
-  const { images, aspectRatio = 3 / 4, rootProps } = props
+  const { images, aspectRatio = 4 / 3, rootProps } = props
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const [ref, slider] = useCarousel({
     slideChanged: slider => setCurrentSlide(slider.track.details.rel),

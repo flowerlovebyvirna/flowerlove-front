@@ -11,7 +11,7 @@ import {
   Skeleton,
 } from "@chakra-ui/react"
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 import { PriceTag } from "./PriceTag"
 import { Link } from "gatsby"
 
@@ -28,7 +28,7 @@ export const ProductCard = props => {
       {...rootProps}
     >
       <Box position="relative">
-        <AspectRatio ratio={3 / 4}>
+        <AspectRatio ratio={4 / 3}>
           <Link to={`/products/${product.slug.current}`}>
             {/* <GatsbyImage
               image={product.coverImage.asset.gatsbyImageData}

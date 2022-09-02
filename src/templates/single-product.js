@@ -72,7 +72,11 @@ const SingleProduct = ({ data }) => {
     <>
       <Seo title="Prodotto" />
       <ProductDetail product={product} />
-      <Latest recomended recomendedProduct={recomendedProduct} />
+      <Latest
+        recomended
+        latestTitle="Shop"
+        recomendedProduct={recomendedProduct}
+      />
     </>
   )
 }
